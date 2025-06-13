@@ -1,0 +1,30 @@
+# Docker & Git
+# Ignore the Dockerfile itself and the .dockerignore file.
+Dockerfile
+.dockerignore
+.git/
+.gitignore
+
+# Python Virtual Environment
+.venv
+venv
+env
+
+# Python Cache Files
+__pycache__/
+*.pyc
+
+# Sensitive Information
+.env
+*.env
+
+# IDE and Local Config
+.vscode/
+.idea/
+
+# ADK Session Files
+*.session.json
+*.db
+
+# Documentation / Readme
+README.md

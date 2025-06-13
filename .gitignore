@@ -1,0 +1,57 @@
+# Python Virtual Environment
+# Ignore the virtual environment directory to avoid committing packages.
+.venv/
+venv/
+env/
+ENV/
+
+# Python Cache Files
+# Ignore compiled Python files and cache directories.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Sensitive Information & Secrets
+# CRITICAL: Never commit your .env file containing API keys and passwords.
+.env
+*.env
+
+# CRITICAL: Never commit Kubernetes configuration files.
+kubeconfig
+*.kubeconfig
+
+# IDE and Editor Directories
+# Ignore configuration directories from common IDEs.
+.vscode/
+.idea/
+.project
+.pydevproject
+
+# Build and Distribution Artifacts
+# Ignore build artifacts from tools like setuptools.
+/build/
+/dist/
+*.egg-info/
+*.egg
+
+# ADK Session Files
+# Ignore session files saved by 'adk run --save_session'.
+*.session.json
+*.db
+
+# Docker & Compose Files
+# It's often good practice to ignore local compose files if they contain sensitive info,
+# or if they are just for local development and not part of the main deployment.
+docker-compose.yml
+docker-compose.override.yml
+
+# Log Files
+# Ignore any local log files that might be generated during testing.
+*.log
+logs/
+
+# Operating System Files
+# Ignore OS-specific files.
+.DS_Store
+Thumbs.db
