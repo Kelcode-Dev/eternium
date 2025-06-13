@@ -1,0 +1,15 @@
+docker
+google-adk
+kubernetes
+langchain
+langchain_ollama
+langchain_milvus
+litellm
+mysql-connector-python
+prometheus-api-client
+pymilvus
+python-dotenv
+pytz
+psycopg2-binary
+requests
+sqlalchemy
