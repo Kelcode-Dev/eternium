@@ -142,6 +142,6 @@ This project is licensed under the MIT License with a Non-Commercial Addendum.
 - **Personal, educational, and homelab use:** Free and unrestricted, in accordance with the MIT License.
 - **Commercial use:** Not permitted without explicit, written permission from the copyright holder.
 
-If you wish to use this project or its code in a commercial setting, please contact [GizzmoAsus](https://github.com/GizzmoAsus) to discuss licensing terms.
+If you wish to use this project or its code in a commercial setting, please contact [GizzmoShifu](https://github.com/GizzmoShifu) to discuss licensing terms.
 
 Please see the [LICENSE](./LICENSE) file for full details.
