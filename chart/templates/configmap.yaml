@@ -1,0 +1,12 @@
+{{- if .Values.config }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    {{- include "eternium-agent.labels" . | nindent 4 }}
+  name: {{ .Values.config.name}}
+data:
+  {{- range $key, $value := .Values.config.data }}
+  {{ $key | upper }}: {{ $value | quote }}
+  {{- end }}
+{{- end }}

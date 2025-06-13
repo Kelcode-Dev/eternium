@@ -1,0 +1,53 @@
+{{- if and .Values.serviceAccount.enabled .Values.rbac.enabled -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    {{- include "eternium-agent.labels" . | nindent 4 }}
+  name: {{ include "eternium-agent.fullname" . }}
+rules:
+  # Core API Group ("")
+  - apiGroups: [""]
+    resources:
+      - pods
+      - pods/log
+      - namespaces
+      - services
+      - events
+      - persistentvolumeclaims
+      - secrets
+      - configmaps
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - patch
+      - delete
+
+  # Apps API Group
+  - apiGroups: ["apps"]
+    resources:
+      - deployments
+      - statefulsets
+      - daemonsets
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - patch
+      - delete
+
+  # Networking API Group
+  - apiGroups: ["networking.k8s.io"]
+    resources:
+      - ingresses
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - patch
+      - delete
+{{- end }}

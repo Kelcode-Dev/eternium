@@ -1,0 +1,17 @@
+apiVersion: v2
+name: eternium-agent
+description: A Helm chart for Eternium Homelab Operations Agent
+type: application
+
+# Chart version
+version: 0.1.0
+
+# App version
+appVersion: "1.0.0"
+
+# Include additional dependencies
+dependencies:
+- name: postgresql
+  version: "16.7.10"
+  repository: "https://charts.bitnami.com/bitnami"
+  condition: postgres.enabled

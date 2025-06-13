@@ -1,0 +1,88 @@
+image:
+  repository: myregistry/myproject/myagent
+  pullPolicy: IfNotPresent
+  tag: latest
+  imagePullSecrets: my-image-pull-secret
+
+replicaCount: 1
+
+config:
+  name: my-agent-configs
+  data:
+    APP_NAME: "DevOps Assistant Agent"
+    APP_ALLOWED_ORIGINS: "*"
+    APP_SERVE_WEB_UI: true
+    APP_HOST: 0.0.0.0
+    APP_PORT: 8080
+
+    APP_ENABLED_KUBERNETES: true
+    APP_ENABLED_HARBOR: true
+    APP_ENABLED_PROMETHEUS: true
+    APP_ENABLED_DOCKER: true
+    APP_ENABLED_HELM: true
+    APP_ENABLED_MEMORY: true
+    APP_ENABLED_MYSQL: true
+
+    LLM_URL: https://api.example-llm.com/v1
+    LLM_MODEL: gpt-4.1
+
+    PROMETHEUS_URL: http://prometheus.monitoring.svc:9090
+    PROMETHEUS_USERNAME: ""
+    PROMETHEUS_PASSWORD: ""
+
+    HARBOR_URL: https://harbor.registry.local
+    HARBOR_USERNAME: robot$agent_bot
+
+    MILVUS_URL: http://milvus.vector-db.svc:19530
+    MILVUS_USERNAME: ""
+    MILVUS_PASSWORD: ""
+
+    MEMORY_EMBEDDING_URL: https://api.example-llm.com/v1/embeddings
+    MEMORY_EMBEDDING_MODEL: text-embedding-3-small
+    MEMORY_AUTO_ID: true
+    MEMORY_DROP_OLD: false
+    MEMORY_THRESHOLD: 0.8
+
+    DOCKER_CLIENT: ""
+
+    MYSQL_HOST: localhost
+    MYSQL_USERNAME: agent_user
+    MYSQL_PORT: 3306
+    MYSQL_SSL_VERIFY: true
+
+secrets:
+  name: my-agent-secrets
+  data:
+    APP_SESSION_DB: sqlite:///./sessions.db
+    HARBOR_TOKEN: "changeme"
+    LLM_TOKEN: "changeme"
+    MYSQL_PASSWORD: "changeme"
+
+service:
+  name: my-agent-service
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  ingressClassName: "traefik"
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-issuer
+  host: agent.devops.local
+  tls:
+    - secretName: agent-devops-tls
+      hosts:
+        - agent.devops.local
+
+serviceAccount:
+  enabled: true
+  name: my-agent-sa
+  annotations: {}
+
+rbac:
+  enabled: true
+
+postgresql:
+  enabled: false
