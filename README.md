@@ -21,7 +21,7 @@ The agency operates on a hierarchical model. A central `Coordinator` agent acts 
   - **Multi-Step Reasoning**: Capable of complex, multi-step, multi-agent workflows to answer questions or perform tasks.
   - **Persistent Memory**: The Memory Agent uses a Milvus vector database to learn and recall information across restarts.
   - **Service Integrations**: Out-of-the-box support for Kubernetes, Docker, Helm, Prometheus, Harbor, MySQL, and more.
-  - **Containerized & Deployable**: Comes with a `Dockerfile` and a Helm chart for easy deployment into any Kubernetes cluster.
+  - **Containerised & Deployable**: Comes with a `Dockerfile` and a Helm chart for easy deployment into any Kubernetes cluster.
 
 ### The Agency Team
 
@@ -92,7 +92,7 @@ docker run --rm -it --env-file .env -p 8000:8000 eternium-agent
 
 The most robust way to deploy the agency is with the provided Helm chart located in the `/charts/eternium-agent` directory.
 
-1.  **Customize Values:** Create a `my-values.yaml` file and override any default settings from the chart's `values.yaml`, especially the `config` and `secrets` sections.
+1.  **Customise Values:** Create a `my-values.yaml` file and override any default settings from the chart's `values.yaml`, especially the `config` and `secrets` sections.
 2.  **Install the Chart:**
     ```bash
     helm install eternium ./charts/eternium-agent --namespace my-agents --create-namespace -f my-values.yaml

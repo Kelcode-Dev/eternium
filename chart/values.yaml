@@ -9,7 +9,7 @@ replicaCount: 1
 config:
   name: my-agent-configs
   data:
-    APP_NAME: "DevOps Assistant Agent"
+    APP_NAME: "Eternium Assistant Agent"
     APP_ALLOWED_ORIGINS: "*"
     APP_SERVE_WEB_UI: true
     APP_HOST: 0.0.0.0
